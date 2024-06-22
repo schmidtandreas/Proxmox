@@ -53,12 +53,49 @@ function default_settings() {
   echo_default
 }
 
+function get_mc_br_url() {
+download_url="https://www.minecraft.net/de-de/download/server/bedrock"
+get_header="user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+curl -s -H "${get_header}" "${download_url}" | grep "serverBedrockLinux" | sed -e "s|.*href=\"\(.*\.zip\)\".*|\1|"
+}
+
+function get_mc_br_version() {
+get_mc_br_url | sed -e "s|.*bedrock-server-\(.*\)\.zip|\1|"
+}
+
+MCBR_SERVER_DIRECTORY="/minecraft"
+MCBR_SERVER_VERSION_FILE="${MCBR_SERVER_DIRECTORY}/server_verson.txt"
+MCBR_VERSION="$(get_mc_br_version)"
+MCBR_SERVER_ARCHIVE="bedrock-server-${MCBR_VERSION}.zip"
+
+function get_local_mc_br_versoin() {
+version_file="${MCBR_SERVER_VERSION_FILE}"
+[ "${version_file}" ] && cat "${MCBR_SERVER_VERSION_FILE}" || echo ""
+}
+
 function update_script() {
 header_info
 if [[ ! -f /minecraft/bedrock_server ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
+remote_version="${MCBR_VERSION}"
+local_version="$(get_local_mc_br_versoin)"
+if [[ "${remote_version}" != "${local_version}" ]]; then
+msg_info "Stopping ${APP}"
+systemctl stop minecraft
+msg_ok "Stopped ${APP}"
+
 msg_info "Updating ${APP} LXC"
-apt-get update &>/dev/null
-apt-get -y upgrade &>/dev/null
+wget "$(get_mc_br_url)"
+unzip -o -d "${MCBR_SERVER_DIRECTORY}" "${MCBR_SERVER_ARCHIVE}"
+sed -i "s|level-name=.*|level-name=Schmidty Land|" "${MCBR_SERVER_DIRECTORY}/server.properties"
+get_mc_br_version > "${MCBR_SERVER_VERSION_FILE}"
+msg_ok "Updated ${APP} LXC"
+
+msg_info "Starting ${APP}"
+systemctl start minecraft
+msg_ok "Started ${APP}"
+else
+msg_ok "${APP} is uptodate"
+fi
 msg_ok "Updated Successfully"
 exit
 }
