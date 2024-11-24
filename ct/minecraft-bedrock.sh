@@ -54,7 +54,7 @@ function default_settings() {
 }
 
 function get_mc_br_url() {
-download_url="https://www.minecraft.net/de-de/download/server/bedrock"
+download_url="https://www.minecraft.net/bedrockdedicatedserver/bin-linux"
 get_header="user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 curl -s -H "${get_header}" "${download_url}" | grep "serverBedrockLinux" | sed -e "s|.*href=\"\(.*\.zip\)\".*|\1|"
 }
