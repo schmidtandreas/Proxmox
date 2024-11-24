@@ -7,10 +7,123 @@
 
 <h3 align="center">All notable changes to this project will be documented in this file.</h3>
 
-> [!WARNING]
-Be cautious of copycat or coat-tailing sites that exploit the project's popularity with potentially malicious intent. Please only trust information from https://Helper-Scripts.com/ or https://tteck.github.io/Proxmox/.
+> [!CAUTION]
+Exercise vigilance regarding copycat or coat-tailing sites that seek to exploit the project's popularity for potentially malicious purposes.
 
-- All LXC instances created using this repository come pre-installed with Midnight Commander, which is a command-line tool (`mc`) that offers a user-friendly file and directory management interface for the terminal environment.
+> [!NOTE]
+All LXC instances created using this repository come pre-installed with Midnight Commander, which is a command-line tool (`mc`) that offers a user-friendly file and directory management interface for the terminal environment.
+
+## 2024-10-27
+
+### Changed
+
+- **Open WebUI LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/8a21f6e7f025a911865395d4c0fa9a001bd0d512)
+  - Refactor Script to add an option to install Ollama.
+
+## 2024-10-26
+
+### Changed
+
+- **AdventureLog LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/adventurelog-install.sh)
+  - NEW Script
+
+## 2024-10-25
+
+### Changed
+
+- **Zoraxy LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/468a5d367ded4cf453a1507452e112ac3e234e2a)
+  - Switch built from source to a pre-compiled binary version.
+  - Breaking Change
+
+## 2024-10-23
+
+### Changed
+
+- **Wallos LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/wallos-install.sh)
+  - NEW Script
+- **Open WebUI LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/openwebui-install.sh)
+  - NEW Script
+
+## 2024-10-19
+
+### Changed
+
+- **Cockpit LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/cockpit-install.sh)
+  - NEW Script
+- **Neo4j LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/neo4j-install.sh)
+  - NEW Script
+
+## 2024-10-18
+
+### Changed
+
+- **ArchiveBox LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/archivebox-install.sh)
+  - NEW Script
+
+## 2024-10-15
+
+### Changed
+
+- **evcc LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/evcc-install.sh)
+  - NEW Script
+
+## 2024-10-10
+
+### Changed
+
+- **MySQL LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/mysql-install.sh)
+  - NEW Script
+- **Tianji LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/4c83a790ac9b040da1f11ad2cbe13d3fc5f480e9)
+  - Breaking Change
+  - Switch from `pm2` process management to `systemd`
+
+## 2024-10-03
+
+### Changed
+
+- **Home Assistant Core LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/f2937febe69b2bad8b3a14eb84aa562a8f14cc6a) [(Commit)](https://github.com/tteck/Proxmox/commit/f2966ced7f457fd506f865f7f5b70ea12c4b0049)
+  - Refactor Code
+  - Breaking Change
+  - Home Assistant has transitioned to using `uv` for managing the virtual environment and installing additional modules.
+
+## 2024-09-16
+
+### Changed
+
+- **HomeBox LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/homebox-install.sh)
+  - NEW Script
+- **Zipline LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/zipline-install.sh)
+  - NEW Script
+
+## 2024-09-13
+
+### Changed
+
+- **Tianji LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/tianji-install.sh)
+  - NEW Script
+
+## 2024-08-21
+
+### Changed
+
+- **WireGuard LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/723365a79df7cc0fd29b1af8f7ef200a7e0921b1)
+  - Refactor Code
+  - Breaking Change
+
+## 2024-08-19
+
+### Changed
+
+- **CommaFeed LXC** [(Commit)](https://github.com/tteck/Proxmox/commit/0a33d1739ec3a49011411929bd46a260e92e99f9)
+  - Refactor Code
+  - Breaking Change
+
+## 2024-08-06
+
+### Changed
+
+- **lldap LXC** [(View Source)](https://github.com/tteck/Proxmox/blob/main/install/lldap-install.sh)
+  - NEW Script
 
 ## 2024-07-26
 

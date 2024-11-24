@@ -36,7 +36,6 @@ $STD apt-get install -y \
 msg_ok "Installed Python3"
 
 msg_info "Installing Spoolman"
-cd /opt
 RELEASE=$(wget -q https://github.com/Donkie/Spoolman/releases/latest -O - | grep "title>Release" | cut -d " " -f 4)
 cd /opt
 wget -q https://github.com/Donkie/Spoolman/releases/download/$RELEASE/spoolman.zip
@@ -44,7 +43,7 @@ unzip -q spoolman.zip -d spoolman
 rm -rf spoolman.zip
 cd spoolman
 $STD pip3 install -r requirements.txt
-cp .env.example .env
+wget -q https://raw.githubusercontent.com/Donkie/Spoolman/master/.env.example -O .env
 echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
 msg_ok "Installed Spoolman"
 
